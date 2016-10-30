@@ -5,7 +5,7 @@ require 'securerandom'
 require 'erb'
 require './classes/send_mail.rb'
 
-ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./configs/database.yml')).result)
+ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
 ActiveRecord::Base.establish_connection(:development)
 
 class User < ActiveRecord::Base
