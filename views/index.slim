@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title="深川麻衣ブログ更新通知 - 深川教会"
+    meta name="keywords" content="深川麻衣公式ブログ更新通知 - 深川教会"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes"
+    link rel="stylesheet" type="text/css" href="/stylesheets/lighttaste.css"
+    link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css"
+    link rel="stylesheet" type="text/css" href="/stylesheets/maimai.css"
+  body
+  	div.grid_start.mb_100
+  	  div.eighty.grid.offset_by_ten.pt_20
+		h1.tx_lefting.maimai_h1
+          | 深川麻衣
+          br
+          | ブログ更新通知(β)
+	    p.pt_20
+	      | 深川麻衣さんの公式ブログが更新された時にメールで通知します。
+	      br
+	      | まいまいから届いたみたいな感じにしたいと思っています。
+	      br
+	      | まいみんの皆様よかったらぜひ！
+    	form.mt_40 action="/" method="POST"
+    	  label.grid メールアドレス
+    	  input.grid.mb_20 type="email" name="email"
+      	  - if flash.has?(:error)
+			p.error #{flash[:error]}
+      	  input.button.grid.mb_20 type="submit" value="通知登録"
+    div.grid_start.tx_centering id="footer"
+      | Copyright &copy; 2016 深川教会
+  	div.bg_hover
+  	div.bg_main
