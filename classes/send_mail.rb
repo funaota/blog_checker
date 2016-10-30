@@ -10,10 +10,10 @@ ActionMailer::Base.smtp_settings = {
 
 class SendMail < ActionMailer::Base
 
-	default from: 'notice_maimai_blog@nogizaka.co'
+	default from: 'notice_maimaiblog@nogizaka.co'
 
 	def confirm(address, confirm_id)
-		@url = Sinatra::Application.root + "/confirm?id=" + confirm_id
+		@url = "http://maimaiblog.nogizaka.co/confirm?id=" + confirm_id
 		mail to: address
 		mail subject: "深川麻衣ブログ通知 確認メール"
 		mail do |format|
