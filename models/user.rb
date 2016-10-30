@@ -5,14 +5,6 @@ require 'securerandom'
 require 'erb'
 require './classes/send_mail.rb'
 
-puts "////////////////"
-puts File.read('./configs/database.yml').class
-puts File.read('./configs/database.yml')
-puts "////////////////"
-puts ERB.new(File.read('./configs/database.yml')).class
-puts ERB.new(File.read('./configs/database.yml')).result.class
-puts ERB.new(File.read('./configs/database.yml')).result
-
 ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./configs/database.yml')).result)
 ActiveRecord::Base.establish_connection(:development)
 
