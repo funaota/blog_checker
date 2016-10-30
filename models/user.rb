@@ -2,9 +2,18 @@ require 'rubygems'
 require 'active_record'
 require 'mysql2'
 require 'securerandom'
+require 'erb'
 require './classes/send_mail.rb'
 
-ActiveRecord::Base.configurations = YAML.load_file('./configs/database.yml')
+puts "////////////////"
+puts File.read('./configs/database.yml').class
+puts File.read('./configs/database.yml')
+puts "////////////////"
+puts ERB.new(File.read('./configs/database.yml')).class
+puts ERB.new(File.read('./configs/database.yml')).result.class
+puts ERB.new(File.read('./configs/database.yml')).result
+
+ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./configs/database.yml')).result)
 ActiveRecord::Base.establish_connection(:development)
 
 class User < ActiveRecord::Base

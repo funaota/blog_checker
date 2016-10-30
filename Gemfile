@@ -7,6 +7,7 @@ gem 'watir'
 gem 'mysql2'
 gem 'slim'
 gem 'rack-flash3'
+gem 'dotenv'
 
 gem 'activerecord'
 gem 'actionmailer'

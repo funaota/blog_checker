@@ -41,6 +41,7 @@ GEM
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     commonwatir (4.0.0)
+    dotenv (2.1.1)
     erubis (2.7.0)
     ffi (1.9.14)
     globalid (0.3.7)
@@ -104,6 +105,7 @@ PLATFORMS
 DEPENDENCIES
   actionmailer
   activerecord
+  dotenv
   mysql2
   rack
   rack-flash3
