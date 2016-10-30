@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS maimai_blogchecker_developer;
-USE maimai_blogchecker_developer;
+CREATE DATABASE IF NOT EXISTS maimai_blogchecker;
+USE maimai_blogchecker;
 
 create table users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
