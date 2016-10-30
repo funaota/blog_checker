@@ -7,6 +7,6 @@ create table users (
   confirm_id VARCHAR(256),
   status INT UNSIGNED,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT 0,
   PRIMARY KEY(id)
 );
