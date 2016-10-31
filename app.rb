@@ -3,7 +3,6 @@ require 'sinatra'
 require 'slim'
 require 'rack-flash'
 require 'rack/session/cookie'
-require './classes/update_checker.rb'
 require './models/user.rb'
 
 use Rack::Session::Cookie
@@ -36,8 +35,3 @@ get '/confirm' do
 	User.confirm(params[:id])
 	slim :index
 end
-
-get '/go_maimai' do
-	checker = UpdateChecker.new("http://tencarat.com/talent/talent042/diary/")
-end
-
