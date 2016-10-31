@@ -6,6 +6,7 @@ require './models/post.rb'
 class UpdateChecker
 
   def self.check
+    p "start check #{Time.now}"
     browser = Watir::Browser.start("http://tencarat.com/talent/talent042/diary/", :phantomjs)
     browser.refresh
     new_content = browser.div(class: "box")
