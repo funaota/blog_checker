@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
 	validates :email, presence: true
 
-	before_save :before_save_user
-	after_save	:send_confirm_mail
+	before_create :before_save_user
+	after_create	:send_confirm_mail
 
 	def before_save_user
 		self.status = 0 # status 0 is don't send mail
