@@ -26,7 +26,11 @@ class SendMail < ActionMailer::Base
 
 	def notice(new_content)
 		@title = new_content
-		mail(to: address, subject: "【深川麻衣】ブログ更新しました！") do |format|
+		users = User.where(status: 1)
+		emails = users.map do |user|
+			user.email
+		end
+		mail(to: emails, subject: "【深川麻衣】ブログ更新しました！") do |format|
 			format.text
 		end
 	end
