@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS maimai_blogchecker;
 USE maimai_blogchecker;
 
-create table users (
+CREATE TABLE IF NOT EXISTS users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   email VARCHAR(256),
   confirm_id VARCHAR(256),
@@ -11,7 +11,7 @@ create table users (
   PRIMARY KEY(id)
 );
 
-create table posts (
+CREATE TABLE IF NOT EXISTS posts (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(256),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
