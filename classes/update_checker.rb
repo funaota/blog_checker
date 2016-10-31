@@ -1,24 +1,13 @@
 require 'watir'
+require '../classes/send_mail'
 
 class UpdateChecker
-  def initialize(url, interval = 600)
+  def initialize(url)
     @browser = Watir::Browser.start(url, :phantomjs)
-    @interval = interval
     @old_content = nil
   end
 
-  def start
-    Thread.new do
-      loop do
-        check
-        sleep @interval
-      end
-    end
-  end
-
   def check
-    new_content = nil
-
     @browser.refresh
     new_content = @browser.div(class: "box")
                           .ul(class: "datelist")
@@ -28,7 +17,7 @@ class UpdateChecker
       if @old_content == new_content
         not_updated
       else
-        updated(@old_content, new_content)
+        updated(new_content)
       end
     end
 
@@ -36,11 +25,13 @@ class UpdateChecker
   end
 
   def updated(new_content)
+    SendMail.notice("takuji.funao@gmail.com").deliver
     puts "#{@browser.title} updated on #{Time.now}"
     puts new_content
   end
 
   def not_updated
+    SendMail.notice("takuji.funao@gmail.com").deliver
     puts "#{@browser.title} not updated"
   end
 end

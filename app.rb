@@ -38,8 +38,6 @@ get '/confirm' do
 end
 
 get '/go_maimai' do
-	checker = UpdateChecker.new("http://tencarat.com/talent/talent042/diary/", 10)
-	thread = checker.start
-	thread.join
+	checker = UpdateChecker.new("http://tencarat.com/talent/talent042/diary/")
 end
 
