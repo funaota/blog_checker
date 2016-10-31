@@ -1,1 +1,1 @@
-mysql -u root -p < sqls/user.sql
+mysql -u root -p < sqls/setup.sql
