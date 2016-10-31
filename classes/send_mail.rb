@@ -1,4 +1,5 @@
 require 'action_mailer'
+require './models/user.rb'
 
 ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, '../views')
 ActionMailer::Base.raise_delivery_errors = true
