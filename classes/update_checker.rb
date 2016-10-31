@@ -1,7 +1,8 @@
 require 'watir'
-require '../classes/send_mail'
+require './classes/send_mail'
 
 class UpdateChecker
+
   def initialize(url)
     @browser = Watir::Browser.start(url, :phantomjs)
     @old_content = nil
