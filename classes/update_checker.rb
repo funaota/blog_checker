@@ -15,15 +15,15 @@ class UpdateChecker
     if Post.exists?(:title => new_content)
       not_updated
     else
-      updated
-      new_post = Post.new(:title => new_content)
-      new_post.save
+      updated(new_content)
     end
 
   end
 
-  def self.updated
-    SendMail.notice("takuji.funao@gmail.com").deliver
+  def self.updated(new_content)
+    SendMail.notice(new_content)
+    new_post = Post.new(:title => new_content)
+    new_post.save
   end
 
   def self.not_updated
