@@ -26,7 +26,7 @@ class UpdateChecker
   end
 
   def self.updated(new_content)
-    SendMail.notice(new_content)
+    SendMail.notice(new_content).deliver
     new_post = Post.new(title: new_content)
     new_post.save
   end

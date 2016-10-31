@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
 	def self.confirm(params_id)
 		@user = User.find_by(confirm_id: params_id)
-		@user.status = 1
+		@user.update(status: 1)
 		SendMail.confirm_ok(@user.email).deliver
 	end
 
