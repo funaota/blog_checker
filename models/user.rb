@@ -5,6 +5,9 @@ require 'securerandom'
 require 'erb'
 require './classes/send_mail.rb'
 
+ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
+ActiveRecord::Base.establish_connection(:development)
+
 class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
