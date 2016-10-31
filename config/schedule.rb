@@ -1,8 +1,7 @@
-require 'active_record'
-require './classes/update_checker.rb'
+require 'dotenv'
+Dotenv.load
 
-ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
-ActiveRecord::Base.establish_connection(:development)
+require './classes/update_checker.rb'
 
 every 1.minute do
 	UpdateChecker.check("http://tencarat.com/talent/talent042/diary/")
