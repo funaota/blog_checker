@@ -1,5 +1,5 @@
 require 'watir'
-require './classes/send_mail'
+require './classes/send_mail.rb'
 
 class UpdateChecker
 
