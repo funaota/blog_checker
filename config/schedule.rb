@@ -1,4 +1,5 @@
 require 'yaml'
+require './classes/update_checker.rb'
 
 checker = UpdateChecker.new("http://tencarat.com/talent/talent042/diary/")
 
