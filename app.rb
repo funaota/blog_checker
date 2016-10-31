@@ -34,5 +34,5 @@ end
 
 get '/confirm' do
 	User.confirm(params[:id])
-	slim :index
+	slim :confirm
 end
