@@ -4,7 +4,9 @@ require 'mysql2'
 require 'securerandom'
 require 'erb'
 require './classes/send_mail.rb'
+require 'dotenv'
 
+Dotenv.load
 ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
 ActiveRecord::Base.establish_connection(:production)
 # ActiveRecord::Base.establish_connection(:development)
