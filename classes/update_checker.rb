@@ -5,8 +5,8 @@ require './models/post.rb'
 
 class UpdateChecker
 
-  def self.check(url)
-    browser = Watir::Browser.start(url, :phantomjs)
+  def self.check
+    browser = Watir::Browser.start("http://tencarat.com/talent/talent042/diary/", :phantomjs)
     browser.refresh
     new_content = browser.div(class: "box")
                           .ul(class: "datelist")
