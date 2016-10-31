@@ -1,7 +1,9 @@
 require 'action_mailer'
 require './models/user.rb'
 
-ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, '../views')
+url = Sinatra::Application.root.include?("classes") ? "../views" : "views"
+
+ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, url)
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
@@ -31,7 +33,7 @@ class SendMail < ActionMailer::Base
 		emails = users.map do |user|
 			user.email
 		end
-		mail(to: emails, subject: "【深川麻衣】ブログ更新しました！") do |format|
+		mail(bcc: emails, subject: "【深川麻衣】ブログ更新しました！") do |format|
 			format.text
 		end
 	end
