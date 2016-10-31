@@ -6,12 +6,12 @@ require './models/post.rb'
 class UpdateChecker
 
   def self.check
-    p "start check #{Time.now}"
     browser = Watir::Browser.start("http://tencarat.com/talent/talent042/diary/", :phantomjs)
     browser.refresh
     new_content = browser.div(class: "box")
                           .ul(class: "datelist")
-                          .li(class: "page").text
+                          .li(class: "page")
+                          .div(class: "title").text
 
     unless Post.exists?
       first_post = Post.new(title: new_content)
@@ -33,6 +33,6 @@ class UpdateChecker
   end
 
   def self.not_updated
-    SendMail.notice("takuji.funao@gmail.com").deliver
+    p "not update"
   end
 end
