@@ -3,7 +3,7 @@ require './classes/update_checker.rb'
 namespace :checker do
 	desc "ブログをチェックする"
 
-	task :start => :environment do
+	task :start do
 		UpdateChecker.check
 	end
 end
