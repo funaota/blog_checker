@@ -33,6 +33,8 @@ class SendMail < ActionMailer::Base
 		emails = users.map do |user|
 			user.email
 		end
+                p users
+                p emails
 		mail(bcc: emails, subject: "【深川麻衣】ブログ更新しました！") do |format|
 			format.text
 		end
