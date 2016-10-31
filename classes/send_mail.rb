@@ -1,6 +1,6 @@
 require 'action_mailer'
 
-ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, 'views')
+ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, '../views')
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {

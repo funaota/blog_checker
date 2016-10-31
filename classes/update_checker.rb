@@ -22,11 +22,11 @@ class UpdateChecker
 
   end
 
-  def updated
+  def self.updated
     SendMail.notice("takuji.funao@gmail.com").deliver
   end
 
-  def not_updated
+  def self.not_updated
     SendMail.notice("takuji.funao@gmail.com").deliver
   end
 end
