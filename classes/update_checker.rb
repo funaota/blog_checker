@@ -12,7 +12,12 @@ class UpdateChecker
                           .ul(class: "datelist")
                           .li(class: "page").text
 
-    if Post.exists?(:title => new_content)
+    unless Post.exists?
+      first_post = Post.new(title: new_content)
+      first_post.save
+    end
+
+    if Post.exists?(title: new_content)
       not_updated
     else
       updated(new_content)
@@ -21,8 +26,8 @@ class UpdateChecker
   end
 
   def self.updated(new_content)
-    SendMail.notice(new_content).deliver_now
-    new_post = Post.new(:title => new_content)
+    SendMail.notice(new_content)
+    new_post = Post.new(title: new_content)
     new_post.save
   end
 
