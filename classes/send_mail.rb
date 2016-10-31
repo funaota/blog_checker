@@ -25,6 +25,7 @@ class SendMail < ActionMailer::Base
 	end
 
 	def notice(new_content)
+		@title = new_content
 		mail(to: address, subject: "【深川麻衣】ブログ更新しました！") do |format|
 			format.text
 		end
