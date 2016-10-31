@@ -12,3 +12,4 @@ gem 'dotenv'
 gem 'activerecord'
 gem 'actionmailer'
 gem 'whenever', :require => false
+gem 'rake'
