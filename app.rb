@@ -6,8 +6,6 @@ require 'rack-flash'
 require 'rack/session/cookie'
 require './models/user.rb'
 
-
-
 use Rack::Session::Cookie
 use Rack::Flash
 

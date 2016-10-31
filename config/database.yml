@@ -5,11 +5,10 @@ default: &default
   username: root
   password: <%= ENV['DB_PASSWORD'] %>
   socket: <%= ENV['DB_SOCKET'] %>
+  database: maimai_blogchecker
 
 development:
   <<: *default
-  database: maimai_blogchecker
 
 production:
   <<: *default
-  database: maimai_blogchecker
