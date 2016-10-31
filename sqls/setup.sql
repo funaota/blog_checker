@@ -10,3 +10,10 @@ create table users (
   updated_at TIMESTAMP NOT NULL DEFAULT 0,
   PRIMARY KEY(id)
 );
+
+create table posts (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(256),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  PRIMARY KEY(id)
+);

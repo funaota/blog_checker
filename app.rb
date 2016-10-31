@@ -1,9 +1,13 @@
 require 'rubygems'
 require 'sinatra'
 require 'slim'
+require 'active_record'
 require 'rack-flash'
 require 'rack/session/cookie'
 require './models/user.rb'
+
+ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
+ActiveRecord::Base.establish_connection(:development)
 
 use Rack::Session::Cookie
 use Rack::Flash
