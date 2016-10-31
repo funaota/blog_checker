@@ -1,12 +1,11 @@
 require 'dotenv'
-Dotenv.load
-
 require './classes/update_checker.rb'
 
 namespace :checker do
-	desc "ブログをチェックする"
+	desc "check blog"
 
 	task :start do
+		Dotenv.load
 		UpdateChecker.check
 	end
 end
