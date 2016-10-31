@@ -21,6 +21,7 @@ html
           br
           br
           | 現在はまだβ版運用なので、バグが出たらすいません！！
+        a href="https://twitter.com/share" class="twitter-share-button" data-url="http://maimaiblog.nogizaka.co/" data-text="【深川教会】深川麻衣公式ブログの通知アプリを作りました！よかったら是非！" data-via="maimai_kyoukai" data-lang="ja" data-size="large" data-hashtags="深川教会" ツイート
       div.grid_start.tx_centering id="footer"
         | Copyright &copy; 2016 深川教会
     div.bg_hover
@@ -34,3 +35,14 @@ javascript:
 
   ga('create', 'UA-86678701-1', 'auto');
   ga('send', 'pageview');
+
+javascript:
+  !function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + '://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'twitter-wjs');
